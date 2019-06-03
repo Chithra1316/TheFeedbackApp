@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>The Conference</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Conference project">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
+
+</head>
+<body>
+        <a href="/me/predict/feeds">Feeds</a>
+
+        <canvas id="myPieChart" width="70" height="70"></canvas>
+        <script>
+        var ctx = document.getElementById("myPieChart");
+       
+
+        var myPieChart = new Chart(ctx,{
+        type: 'doughnut',
+        devicePixelRatio :1/4,
+        data : {
+            datasets: [{
+                data: [<%- values.negative %> ,<%- values.positive%>],
+        
+            // These labels appear in the legend and in the tooltips when hovering different arcs
+            labels: [
+                'Negative',
+                'Positive'
+            ],
+            
+            backgroundColor: [
+            "#B10DC9",
+            "#FFDC00",
+              
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(255,99,132,1)',
+
+  
+            ],
+            borderWidth:1,
+        }],
+        labels: [
+                'Negative',
+                'Positive'
+            ]
+                
+            
+ 
+        },
+        options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+    </script>
+
+
+<div>
+
+        <h4>The average sentiment is : <%= values.average %>%</h4>
+        <h4>The total number of responses were : <%=values.total%></h4>
+        <h4>The total number of positive responses were : <%=values.positive%></h4>
+        <h4>The total number of negative responses were : <%=values.negative%></h4>
+              </div>
+
+<!--
+	
+
+	<div class="menu trans_500">
+		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+			<div class="menu_close_container"><div class="menu_close"></div></div>
+		
+			
+		</div>
+		
+	</div>
+	
+        <div>
+		<header class="header" id="header">
+			
+				
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<div class="header_top_content d-flex flex-row align-items-center justify-content-start">
+									<div>
+										<a href="#">
+											<div class="logo_container d-flex flex-row align-items-start justify-content-start">
+												<div class="logo_image"><div><img src="../../images/dwanilogo.jpg" alt=""></div></div>
+												<div class="logo_content">
+													<div id="logo_text" class="logo_text logo_text_not_ie">Dhwani</div>
+													<div class="logo_sub">College of Engineering Trivandrum</div>
+												</div>
+											</div>
+										</a>	
+									</div>
+									<div class="hamburger ml-auto"><i class="fa fa-bars" aria-hidden="true"></i></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				
+				<div class="header_nav" id="header_nav_pin">
+					<div class="header_nav_inner">
+						<div class="header_nav_container">
+							<div class="container">
+								<div class="row">
+									<div class="col">
+										<div class="header_nav_content d-flex flex-row align-items-center justify-content-start">
+											<nav class="main_nav">
+												<ul>
+													<li class="active"><a href="#">Chart</a></li>
+													<li><a href="/me/predict/feeds">Feed</a></li>
+												</ul>
+											</nav>
+											
+
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>	
+          </header>
+          <div>
+            
+            <canvas id="myPieChart" width="10" height="10"></canvas>
+            <script>
+            var ctx = document.getElementById("myPieChart");
+           
+    
+            var myPieChart = new Chart(ctx,{
+            type: 'doughnut',
+            devicePixelRatio :1/4,
+            data : {
+                datasets: [{
+                    data: [<%- values.negative %> ,<%- values.positive%>],
+            
+                // These labels appear in the legend and in the tooltips when hovering different arcs
+                labels: [
+                    'Negative',
+                    'Positive'
+                ],
+                
+                backgroundColor: [
+                "#B10DC9",
+                "#FFDC00",
+                  
+                ],
+                borderColor: [
+                    'rgba(255,99,132,1)',
+                    'rgba(255,99,132,1)',
+    
+      
+                ],
+                borderWidth:1,
+            }],
+            labels: [
+                    'Negative',
+                    'Positive'
+                ]
+                    
+                
+     
+            },
+            options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero:true
+                    }
+                }]
+            }
+        }
+    });
+        </script>
+    
+          </div>
+
+          <div>
+
+    <h4>The average sentiment is : <%= values.average %>%</h4>
+    <h4>The total number of responses were : <%=values.total%></h4>
+    <h4>The total number of positive responses were : <%=values.positive%></h4>
+    <h4>The total number of negative responses were : <%=values.negative%></h4>
+          </div>
+        -->
+
+
+</body>
+</html>
